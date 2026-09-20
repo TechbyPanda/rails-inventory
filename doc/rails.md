@@ -1,7 +1,15 @@
 # Ruby on rails
 
+https://guides.rubyonrails.org/getting_started.html
+
+## To create new project
+rails new [project name]
+
 ## How to Start a project?
 rails server
+
+## How to check version?
+rails --version
 
 ## What is ruby on rails?
 a popular open-source, server-side web application framework written in the Ruby programming language
@@ -33,3 +41,18 @@ Many of the world's most successful tech platforms rely on Rails to power their 
 3. Airbnb
 4. Basecamp
 5. Twitch
+
+## Basic Project Flow
+(Database)
+1. Migration file in db/migrate/20260920114200_create_inventory_system.rb (
+
+    Rails breaks it down using the format YYYYMMDDHHMMSS:
+    2026 = Year
+    09 = Month (September)
+    20 = Day
+    12 = Hour (12 PM)
+    00 = Minute
+    00 = Second
+)
+2. command `rails db:migrate`
+3. Writing the Active Record Models

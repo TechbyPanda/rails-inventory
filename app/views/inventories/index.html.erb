@@ -1,0 +1,53 @@
+<!-- app/views/inventories/index.html.erb -->
+
+<!-- 1. Flash message banners -->
+<% if flash[:notice] %>
+  <div style="background-color: #d4edda; color: #155724; padding: 10px; margin-bottom: 15px; border-radius: 4px;">
+    <%= flash[:notice] %>
+  </div>
+<% end %>
+
+<% if flash[:alert] %>
+  <div style="background-color: #f8d7da; color: #721c24; padding: 10px; margin-bottom: 15px; border-radius: 4px;">
+    <%= flash[:alert] %>
+  </div>
+<% end %>
+
+<h1>📦 Amazon Fulfillment Center Inventory Dashboard</h1>
+
+<table border="1" cellpadding="10" style="border-collapse: collapse; width: 100%; margin-top: 20px;">
+  <thead>
+    <tr style="background-color: #f2f2f2; text-align: left;">
+      <th>Product SKU</th>
+      <th>Product Name</th>
+      <th>Warehouse Location</th>
+      <th>Total Physical Stock</th>
+      <th>Reserved Stock</th>
+      <th>Available to Buy</th>
+      <th>🚚 Adjust Stock Level</th> <!-- New Header Column -->
+    </tr>
+  </thead>
+  <tbody>
+    <% @inventories.each do |inventory| %>
+      <tr>
+        <td><strong><%= inventory.product.sku %></strong></td>
+        <td><%= inventory.product.name %></td>
+        <td><%= inventory.warehouse.name %> (<%= inventory.warehouse.city %>)</td>
+        <td><%= inventory.quantity %> units</td>
+        <td style="color: #d9534f;"><%= inventory.reserved_quantity %> units</td>
+        <td style="font-weight: bold; color: #5cb85c;">
+          <%= inventory.available_stock %> units
+        </td>
+        
+        <td>
+            <%= form_with url: adjust_inventory_path(inventory), method: :patch, local: true, html: { onsubmit: "return confirm('Are you sure you want to adjust the stock for this item?');" } do |f| %>
+                <input type="number" name="adjustment_amount" value="10" style="width: 60px; padding: 4px;" required>
+                <button type="submit" style="background-color: #007bff; color: white; border: none; padding: 5px 10px; cursor: pointer; border-radius: 3px;">
+                Apply
+                </button>
+            <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

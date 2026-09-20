@@ -1,0 +1,28 @@
+<!-- app/views/pages/about.html.erb -->
+<div style="background-color: white; padding: 40px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); line-height: 1.6;">
+  <h1 style="color: #232f3e; margin-top: 0; font-size: 32px;">Application Profile Overview</h1>
+  
+  <p style="font-size: 18px; color: #555;">
+    Welcome to the core portal configuration. This application serves as a dedicated production-environment simulator designed to test logistical layouts, relational data flows, and transactional integrity at scale.
+  </p>
+  
+  <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
+
+  <h3 style="color: #232f3e;">System Architecture Principles</h3>
+  <p>
+    Built as a decoupled, monolithic environment, this system enforces separation of concerns across multiple system layers:
+  </p>
+  <ul>
+    <li><strong>Core Architecture:</strong> Driven entirely by an object-relational mapping database framework to guarantee clean data retrieval pipelines.</li>
+    <li><strong>Interface Architecture:</strong> Uses standard, server-rendered layouts injected with dynamic client-side runtime handlers to optimize processing speeds.</li>
+    <li><strong>Data Security Boundaries:</strong> Features transactional operation isolation patterns to safely manage shared record mutations.</li>
+  </ul>
+
+  <h3 style="color: #232f3e;">Environment Metrics</h3>
+  <p>
+    <strong>System State:</strong> Active Production Simulation<br>
+    <strong>Interface Paradigm:</strong> Monolithic Server-Driven HTML View Layer
+  </p>
+
+  <%= link_to "Return to Application Home", root_path, style: "display: inline-block; margin-top: 20px; background-color: #232f3e; color: white; padding: 12px 24px; text-decoration: none; font-weight: bold; border-radius: 4px;" %>
+</div>
