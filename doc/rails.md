@@ -56,3 +56,6 @@ Many of the world's most successful tech platforms rely on Rails to power their 
 )
 2. command `rails db:migrate`
 3. Writing the Active Record Models
+
+## Commands
+1. `rails generate stimulus adjuster`
