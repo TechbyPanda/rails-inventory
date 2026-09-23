@@ -12,6 +12,11 @@
   </head>
 
   <body>
+    <nav>
+      <%= link_to "Inventory", root_path %> /
+      <%= link_to "About", about_path %> /
+      <%= link_to "Problems", problems_path %>
+    </nav>
     <%= yield %>
   </body>
 </html>

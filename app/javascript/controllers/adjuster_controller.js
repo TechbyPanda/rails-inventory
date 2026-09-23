@@ -5,4 +5,8 @@ export default class extends Controller {
   connect() {
     console.log("Hello from adjuster controller")
   }
+
+  add() {
+    console.log("Add button clicked")
+  }
 }

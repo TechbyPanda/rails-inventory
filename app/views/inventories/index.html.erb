@@ -15,9 +15,9 @@
 
 <h1>📦 Amazon Fulfillment Center Inventory Dashboard</h1>
 
-<table border="1" cellpadding="10" style="border-collapse: collapse; width: 100%; margin-top: 20px;" data-controller="adjuster">
+<table data-controller="adjuster">
   <thead>
-    <tr style="background-color: #f2f2f2; text-align: left;">
+    <tr>
       <th>Product SKU</th>
       <th>Product Name</th>
       <th>Warehouse Location</th>
@@ -28,6 +28,11 @@
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td colspan="7">
+        <button type="button" data-action="click->adjuster#add">+5 (test)</button>
+      </td>
+    </tr>
     <% @inventories.each do |inventory| %>
       <tr>
         <td><strong><%= inventory.product.sku %></strong></td>
@@ -41,8 +46,8 @@
         
         <td>
             <%= form_with url: adjust_inventory_path(inventory), method: :patch, local: true, html: { onsubmit: "return confirm('Are you sure you want to adjust the stock for this item?');" } do |f| %>
-                <input type="number" name="adjustment_amount" value="10" style="width: 60px; padding: 4px;" required>
-                <button type="submit" style="background-color: #007bff; color: white; border: none; padding: 5px 10px; cursor: pointer; border-radius: 3px;">
+                <input type="number" name="adjustment_amount" value="10" required>
+                <button type="submit">
                 Apply
                 </button>
             <% end %>

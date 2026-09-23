@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   patch "/inventories/:id/adjust", to: "inventories#adjust", as: "adjust_inventory"
 
   get "/about", to: "pages#about", as: "about"
+  get "/problems", to: "pages#problems", as: "problems"
 end

@@ -1,0 +1,15 @@
+<h1>Problem Solving</h1>
+
+<div>
+  <h2>Button click wasn't registering in Stimulus</h2>
+  <p><strong>What happened:</strong> Clicking the "+5" button did nothing — no console log at all.</p>
+  <p><strong>Why:</strong> I placed the &lt;button&gt; as a direct child of &lt;table&gt;, which only allows thead/tbody/tr elements. The browser silently moved it outside the table, so it fell outside my data-controller scope.</p>
+  <p><strong>Fix:</strong> Moved the button inside a &lt;tr&gt;&lt;td&gt;.</p>
+  <p><strong>Lesson:</strong> data-controller scope depends on normal HTML nesting rules — Stimulus doesn't override them.</p>
+</div>
+
+<hr>
+
+<div>
+  <!-- next problem goes here, same shape -->
+</div>
