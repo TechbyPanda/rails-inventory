@@ -5,23 +5,27 @@ class InventoriesController < ApplicationController
   end
 
   def adjust
-    # Find the specific row using the ID from the URL parameter
     @inventory = Inventory.find(params[:id])
-    
-    # Extract the adjustment quantity from our upcoming form (e.g., +50 or -10)
     adjustment = params[:adjustment_amount].to_i
-
-    # Calculate the new total physical stock safely
     new_quantity = @inventory.quantity + adjustment
 
     if new_quantity >= 0
       @inventory.update!(quantity: new_quantity)
-      flash[:notice] = "Stock updated successfully for #{@inventory.product.name}!"
+      respond_to do |format|
+        format.html do
+          flash[:notice] = "Stock updated successfully for #{@inventory.product.name}! New quantity: #{new_quantity} units."
+          redirect_to inventories_path
+        end
+        format.json { head :ok }
+      end
     else
-      flash[:alert] = "Error: Stock cannot fall below 0 units."
+      respond_to do |format|
+        format.html do
+          flash[:alert] = "Error: Stock cannot fall below 0 units."
+          redirect_to inventories_path
+        end
+        format.json { render json: { error: "Stock cannot fall below 0" }, status: :unprocessable_entity }
+      end
     end
-
-    # Redirect the user right back to the dashboard to see the live updates
-    redirect_to inventories_path
   end
 end

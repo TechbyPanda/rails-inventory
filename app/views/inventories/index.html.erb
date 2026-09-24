@@ -30,7 +30,7 @@
   </thead>
   <tbody>
     <% @inventories.each do |inventory| %>
-      <tr data-controller="adjuster">
+      <tr data-controller="adjuster" data-inventory-id="<%= inventory.id %>">
         <td><strong><%= inventory.product.sku %></strong></td>
         <td><%= inventory.product.name %></td>
         <td><%= inventory.warehouse.name %> (<%= inventory.warehouse.city %>)</td>
