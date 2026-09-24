@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   # New route: Sends the inventory ID to a controller action named 'adjust'
   patch "/inventories/:id/adjust", to: "inventories#adjust", as: "adjust_inventory"
 
+  # Static pages routes
   get "/about", to: "pages#about", as: "about"
   get "/problems", to: "pages#problems", as: "problems"
+  get "/interview_questions", to: "pages#interview_questions", as: "interview_questions"
 end

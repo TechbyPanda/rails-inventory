@@ -6,4 +6,7 @@ class PagesController < ApplicationController
 
   def problems 
   end
+
+  def interview_questions
+  end
 end
